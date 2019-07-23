@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link rel="stylesheet"
+		href="#{request.contextPath}/assets/css/bootstrap.min.css" />
+</h:head>
+<body>
+
+
+	<div class="container">
+
+		<ul class="nav justify-content-center">
+
+			<li class="nav-item"><a class="nav-link" href="parayatir.xhtml">Para
+					Yatır</a></li>
+			<li class="nav-item"><a class="nav-link" href="havale.xhtml">Havale</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="mybankaccount.xhtml">Hesabım</a></li>
+		</ul>
+
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="login-form mt-5">
+					<h3>Havale</h3>
+
+					<h:messages styleClass="alert alert-info" />
+
+					<h:form id="frm">
+
+						<div class="form-group">
+							<label>Hesaptaki para: </label>
+							<h:outputText value="#{depositBean.amount}" />
+						</div>
+						
+						<div class="form-group">
+							<label>Gönderilecek IBAN: </label>
+							<h:inputText class="form-control"
+								value="#{depositBean.sendIban}" />
+						</div>
+
+						<div class="form-group">
+							<label>Gönderilecek tutar: </label>
+							<h:inputText class="form-control"
+								value="#{depositBean.sendAmonut}" />
+						</div>
+
+
+						<h:commandButton action="#{depositBean.sendIt()}" value="Save"
+							class="btn btn-primary" />
+
+
+
+
+
+
+
+
+
+					</h:form>
+
+
+
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+
+
+</body>
+</html>
